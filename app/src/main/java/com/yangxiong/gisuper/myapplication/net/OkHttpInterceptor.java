@@ -1,8 +1,11 @@
-package com.yangxiong.gisuper.myapplication;
+package com.yangxiong.gisuper.myapplication.net;
 
 
 import android.util.Log;
 
+
+import com.yangxiong.gisuper.myapplication.MyApp;
+import com.yangxiong.gisuper.myapplication.utils.NetworkUtil;
 
 import java.io.IOException;
 import java.util.HashMap;

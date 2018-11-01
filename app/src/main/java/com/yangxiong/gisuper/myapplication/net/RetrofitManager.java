@@ -1,4 +1,7 @@
-package com.yangxiong.gisuper.myapplication;
+package com.yangxiong.gisuper.myapplication.net;
+
+import com.yangxiong.gisuper.myapplication.MyApp;
+import com.yangxiong.gisuper.myapplication.RecordedListBean;
 
 import java.util.concurrent.TimeUnit;
 

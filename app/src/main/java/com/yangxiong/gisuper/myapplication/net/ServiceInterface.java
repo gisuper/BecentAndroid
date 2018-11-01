@@ -1,4 +1,6 @@
-package com.yangxiong.gisuper.myapplication;
+package com.yangxiong.gisuper.myapplication.net;
+
+import com.yangxiong.gisuper.myapplication.RecordedListBean;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;

@@ -1,4 +1,4 @@
-package com.yangxiong.gisuper.myapplication;
+package com.yangxiong.gisuper.myapplication.utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
