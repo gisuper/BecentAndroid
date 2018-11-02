@@ -46,7 +46,6 @@ public class TranslateActivity extends AppCompatActivity {
                 switch (msg.what) {
                     case 1:
                         bitmaps = new ArrayList<>( );
-                        decodeResource = BitmapFactory.decodeResource(getResources( ), R.drawable.star_big_1);
                         bitmaps.add(BitmapFactory.decodeResource(getResources( ), R.drawable.star_small_1));
                         bitmaps.add(BitmapFactory.decodeResource(getResources( ), R.drawable.star_small_2));
                         bitmaps.add(BitmapFactory.decodeResource(getResources( ), R.drawable.star_small_3));
@@ -92,14 +91,13 @@ public class TranslateActivity extends AppCompatActivity {
             }
         };
         handler.sendEmptyMessage(1);
-       /* decodeResource = BitmapFactory.decodeResource(getResources( ), R.drawable.star_big_1);
+        /*decodeResource = BitmapFactory.decodeResource(getResources( ),R.mipmap.ic_launcher);
         DisplayObject tweenText = new DisplayObject();
         tweenText.with(new BitmapDrawer(decodeResource)
-                .rotateRegistration(118, 118))
+                .rotateRegistration(72, 72))
                 .tween()
                 .tweenLoop(true)
-                .transform(0, 0, 255, 1f,1f, 180f)
-                .rotation(3000,180)
+                .transform(0, 0)
                 .to(5000, 0, 1920, 720f, Ease.CIRC_IN)
                 .end();
         fpsTtv.addChild(tweenText);

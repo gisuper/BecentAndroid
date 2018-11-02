@@ -28,11 +28,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @OnClick({R.id.btn_frame, R.id.btn_translate, R.id.btn_retrofit})
+    @OnClick({R.id.btn_frame, R.id.btn_translate, R.id.btn_retrofit,R.id.btn_viewpager})
     public void onClick(View v) {
         switch (v.getId( )) {
             case R.id.btn_frame:
                 startActivity(new Intent(this, FrameActivity.class));
+                break;
+            case R.id.btn_viewpager:
+                startActivity(new Intent(this, ViewPagerActivity.class));
                 break;
             case R.id.btn_translate:
                 startActivity(new Intent(this, TranslateActivity.class));

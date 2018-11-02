@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ViewPagerActivity">
+    <android.support.v4.view.ViewPager android:layout_width="match_parent"
+                                       android:id="@+id/vp_main"
+                                       android:layout_height="match_parent">
+
+    </android.support.v4.view.ViewPager>
+    <Button
+        android:id="@+id/bt_one"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent="0.25"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="one"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/bt_two"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent="0.25"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/bt_one"
+        app:layout_constraintBottom_toBottomOf="@id/bt_one"
+        android:text="two"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/bt_three"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent="0.25"
+        android:layout_height="wrap_content"
+        android:text="three"
+        app:layout_constraintLeft_toRightOf="@id/bt_two"
+        app:layout_constraintBottom_toBottomOf="@id/bt_two"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/bt_four"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent="0.25"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/bt_three"
+        app:layout_constraintBottom_toBottomOf="@id/bt_three"
+        android:text="four"
+        android:textSize="20sp" />
+</android.support.constraint.ConstraintLayout>
