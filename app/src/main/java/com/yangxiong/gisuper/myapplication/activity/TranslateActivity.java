@@ -7,22 +7,21 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 
 import com.daasuu.library.DisplayObject;
 import com.daasuu.library.FPSSurfaceView;
 import com.daasuu.library.drawer.BitmapDrawer;
 import com.daasuu.library.easing.Ease;
 import com.yangxiong.gisuper.myapplication.R;
+import com.yangxiong.gisuper.myapplication.base.BaseActivity;
 import com.yangxiong.gisuper.myapplication.utils.TitleBarUtils;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
-public class TranslateActivity extends AppCompatActivity {
+public class TranslateActivity extends BaseActivity {
     @BindView(R.id.animation_texture_view)
     FPSSurfaceView fpsTtv;
 
@@ -35,9 +34,7 @@ public class TranslateActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_translate);
         TitleBarUtils.setStatusBarColor(this, Color.TRANSPARENT);
-        ButterKnife.bind(this);
         handlerThread = new HandlerThread("TranslateHandlerThread");
         handlerThread.start( );
         handler = new Handler(handlerThread.getLooper( )) {
@@ -102,7 +99,11 @@ public class TranslateActivity extends AppCompatActivity {
                 .end();
         fpsTtv.addChild(tweenText);
         fpsTtv.tickStart( );*/
+    }
 
+    @Override
+    protected int setConteViewID() {
+        return R.layout.activity_translate;
     }
 
 }

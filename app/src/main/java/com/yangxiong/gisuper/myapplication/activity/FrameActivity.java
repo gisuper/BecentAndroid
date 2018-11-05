@@ -2,24 +2,21 @@ package com.yangxiong.gisuper.myapplication.activity;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.SurfaceView;
 
 import com.yangxiong.gisuper.myapplication.R;
 import com.yangxiong.gisuper.myapplication.anim.SilkyAnimation;
+import com.yangxiong.gisuper.myapplication.base.BaseActivity;
 import com.yangxiong.gisuper.myapplication.utils.TitleBarUtils;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
-public class FrameActivity extends AppCompatActivity {
+public class FrameActivity extends BaseActivity {
     @BindView(R.id.sv_frame)
     SurfaceView svFrame;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fullscreen);
-        ButterKnife.bind(this);
         TitleBarUtils.setStatusBarColor(this, Color.TRANSPARENT);
         SilkyAnimation mAnimation=  new SilkyAnimation.Builder(svFrame)
                 .setCacheCount(8)//设置常驻内存的缓存数量, 默认5.
@@ -31,6 +28,11 @@ public class FrameActivity extends AppCompatActivity {
                 .setRepeatMode(SilkyAnimation.MODE_INFINITE)//设置循环模式, 默认不循环
                 .build();
         mAnimation.start("spark");
+    }
+
+    @Override
+    protected int setConteViewID() {
+        return R.layout.activity_fullscreen;
     }
 
 }

@@ -3,29 +3,50 @@ package com.yangxiong.gisuper.myapplication.activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+import com.yangxiong.gisuper.myapplication.MyApp;
 import com.yangxiong.gisuper.myapplication.R;
 import com.yangxiong.gisuper.myapplication.RecordedListBean;
+import com.yangxiong.gisuper.myapplication.base.BaseActivity;
 import com.yangxiong.gisuper.myapplication.net.RetrofitManager;
 import com.yangxiong.gisuper.myapplication.utils.TitleBarUtils;
 
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import rx.Subscriber;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
-    protected final String TAG = this.getClass().getSimpleName();
+
+    private Tracker defaultTracker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
         TitleBarUtils.setStatusBarColor(this, Color.TRANSPARENT);
+        MyApp context = MyApp.getContext( );
+        defaultTracker = context.getDefaultTracker( );
 
+    }
+
+    @Override
+    protected int setConteViewID() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume( );
+        defaultTracker.send(new HitBuilders.EventBuilder()
+                .setCategory("Action123")
+                .setAction("Share123")
+                .build());
+
+        defaultTracker.setScreenName("Image~" + "MainActivity");
+        defaultTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
     @OnClick({R.id.btn_frame, R.id.btn_translate, R.id.btn_retrofit,R.id.btn_viewpager})
