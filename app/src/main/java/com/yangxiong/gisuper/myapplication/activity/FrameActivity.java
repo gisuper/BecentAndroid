@@ -1,7 +1,6 @@
 package com.yangxiong.gisuper.myapplication.activity;
 
 import android.graphics.Color;
-import android.os.Bundle;
 import android.view.SurfaceView;
 
 import com.yangxiong.gisuper.myapplication.R;
@@ -14,9 +13,14 @@ import butterknife.BindView;
 public class FrameActivity extends BaseActivity {
     @BindView(R.id.sv_frame)
     SurfaceView svFrame;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected int setConteViewID() {
+        return R.layout.activity_fullscreen;
+    }
+
+    @Override
+    protected void initView() {
         TitleBarUtils.setStatusBarColor(this, Color.TRANSPARENT);
         SilkyAnimation mAnimation=  new SilkyAnimation.Builder(svFrame)
                 .setCacheCount(8)//设置常驻内存的缓存数量, 默认5.
@@ -31,8 +35,8 @@ public class FrameActivity extends BaseActivity {
     }
 
     @Override
-    protected int setConteViewID() {
-        return R.layout.activity_fullscreen;
+    protected void initData() {
+
     }
 
 }

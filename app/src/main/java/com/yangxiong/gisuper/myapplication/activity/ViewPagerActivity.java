@@ -1,7 +1,6 @@
 package com.yangxiong.gisuper.myapplication.activity;
 
 import android.graphics.Color;
-import android.os.Bundle;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -26,9 +25,14 @@ public class ViewPagerActivity extends BaseActivity {
      Button three;
     @BindView(R.id.bt_four)
      Button four;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected int setConteViewID() {
+        return R.layout.activity_view_pager;
+    }
+
+    @Override
+    protected void initView() {
         //获取ViewPager
         //创建一个FragmentPagerAdapter对象，该对象负责为ViewPager提供多个Fragment
         FragmentPagerAdapter pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
@@ -72,8 +76,8 @@ public class ViewPagerActivity extends BaseActivity {
     }
 
     @Override
-    protected int setConteViewID() {
-        return R.layout.activity_view_pager;
+    protected void initData() {
+
     }
 
     @OnClick({R.id.bt_one,R.id.bt_two,R.id.bt_three, R.id.bt_four})

@@ -1,8 +1,6 @@
 package com.yangxiong.gisuper.myapplication.activity;
 
-import android.content.Intent;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
@@ -23,18 +21,22 @@ public class MainActivity extends BaseActivity {
 
     private Tracker defaultTracker;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        TitleBarUtils.setStatusBarColor(this, Color.TRANSPARENT);
-        MyApp context = MyApp.getContext( );
-        defaultTracker = context.getDefaultTracker( );
-
-    }
 
     @Override
     protected int setConteViewID() {
         return R.layout.activity_main;
+    }
+
+    @Override
+    protected void initView() {
+        TitleBarUtils.setStatusBarColor(this, Color.TRANSPARENT);
+        MyApp context = MyApp.getContext( );
+        defaultTracker = context.getDefaultTracker( );
+    }
+
+    @Override
+    protected void initData() {
+
     }
 
     @Override
@@ -53,13 +55,13 @@ public class MainActivity extends BaseActivity {
     public void onClick(View v) {
         switch (v.getId( )) {
             case R.id.btn_frame:
-                startActivity(new Intent(this, FrameActivity.class));
+                startActivity(FrameActivity.class);
                 break;
             case R.id.btn_viewpager:
-                startActivity(new Intent(this, ViewPagerActivity.class));
+                startActivity(ViewPagerActivity.class);
                 break;
             case R.id.btn_translate:
-                startActivity(new Intent(this, TranslateActivity.class));
+                startActivity(TranslateActivity.class);
                 break;
             case R.id.btn_retrofit:
                 RetrofitManager.loadRecordListData("20181031", "", 1, 20,

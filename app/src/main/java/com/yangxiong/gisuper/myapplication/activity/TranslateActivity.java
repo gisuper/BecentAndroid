@@ -1,12 +1,15 @@
 package com.yangxiong.gisuper.myapplication.activity;
 
+import android.Manifest;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 
 import com.daasuu.library.DisplayObject;
 import com.daasuu.library.FPSSurfaceView;
@@ -14,6 +17,7 @@ import com.daasuu.library.drawer.BitmapDrawer;
 import com.daasuu.library.easing.Ease;
 import com.yangxiong.gisuper.myapplication.R;
 import com.yangxiong.gisuper.myapplication.base.BaseActivity;
+import com.yangxiong.gisuper.myapplication.utils.PermissionUtil;
 import com.yangxiong.gisuper.myapplication.utils.TitleBarUtils;
 
 import java.util.ArrayList;
@@ -32,9 +36,17 @@ public class TranslateActivity extends BaseActivity {
     private Bitmap decodeResource;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected int setConteViewID() {
+        return R.layout.activity_translate;
+    }
+
+    @Override
+    protected void initView() {
         TitleBarUtils.setStatusBarColor(this, Color.TRANSPARENT);
+    }
+
+    @Override
+    protected void initData() {
         handlerThread = new HandlerThread("TranslateHandlerThread");
         handlerThread.start( );
         handler = new Handler(handlerThread.getLooper( )) {
@@ -99,11 +111,24 @@ public class TranslateActivity extends BaseActivity {
                 .end();
         fpsTtv.addChild(tweenText);
         fpsTtv.tickStart( );*/
+
+        String[] perms = PermissionUtil.hasNotPermissions(this, new String[]{Manifest.permission.READ_SMS});
+        if(perms.length == 0) {
+            Log.e(TAG, "hasPermissions: ");
+        } else {
+            ActivityCompat.requestPermissions(TranslateActivity.this, perms, 2001);
+        }
     }
 
     @Override
-    protected int setConteViewID() {
-        return R.layout.activity_translate;
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        Log.e(TAG, "onRequestPermissionsResult: " + permissions[0]);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy( );
+        handler.removeCallbacksAndMessages(null);
+    }
 }

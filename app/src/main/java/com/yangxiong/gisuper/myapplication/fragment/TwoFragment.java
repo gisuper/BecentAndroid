@@ -1,33 +1,28 @@
 package com.yangxiong.gisuper.myapplication.fragment;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.yangxiong.gisuper.myapplication.R;
+import com.yangxiong.gisuper.myapplication.base.BaseFragment;
+import com.yangxiong.gisuper.myapplication.common.MessageEvent;
+
+import org.greenrobot.eventbus.EventBus;
 
 /**
  * Created by yangxiong on 2018/11/2.
  */
-public class TwoFragment extends android.support.v4.app.Fragment {
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+public class TwoFragment extends BaseFragment {
 
-    }
     @Override
-    @Nullable
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_two, container, false);
-        return rootView;
+    protected int contentViewLayout() {
+        return R.layout.fragment_two;
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    protected void initView() {
+        EventBus.getDefault().post(new MessageEvent());
     }
 
+    @Override
+    protected void initData() {
+
+    }
 }
