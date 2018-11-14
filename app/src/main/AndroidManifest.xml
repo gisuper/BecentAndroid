@@ -43,8 +43,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ViewPagerActivity">
-        </activity>
+        <activity android:name=".activity.ViewPagerActivity"/>
+        <activity android:name=".activity.SurfaceViewActivity"/>
 <activity android:name=".activity.ScanActivity"/>
     </application>
 

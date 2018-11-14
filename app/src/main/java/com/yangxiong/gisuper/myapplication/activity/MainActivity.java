@@ -63,9 +63,12 @@ public class MainActivity extends BaseActivity {
         defaultTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
-    @OnClick({R.id.btn_frame, R.id.btn_translate, R.id.btn_retrofit, R.id.btn_viewpager, R.id.btn_qrcode})
+    @OnClick({R.id.btn_frame, R.id.btn_translate, R.id.btn_retrofit, R.id.btn_viewpager, R.id.btn_qrcode,R.id.btn_sv})
     public void onClick(View v) {
         switch (v.getId( )) {
+            case R.id.btn_sv:
+                startActivity(SurfaceViewActivity.class);
+                break;
             case R.id.btn_qrcode:
                 String[] params = PermissionUtil.hasNotPermissions(this, new String[]{Manifest.permission.CAMERA});
                 if (params.length == 0) {
@@ -84,11 +87,13 @@ public class MainActivity extends BaseActivity {
                 startActivity(TranslateActivity.class);
                 break;
             case R.id.btn_retrofit:
-                RetrofitManager.loadRecordListData("20181031", "", 1, 20,
+                RetrofitManager.loadRecordListData("20181114", "", 1, 20,
                         new Subscriber<RecordedListBean>( ) {
                             @Override
                             public void onCompleted() {
+
                                 Log.e(TAG, "onCompleted: ");
+
                             }
 
                             @Override

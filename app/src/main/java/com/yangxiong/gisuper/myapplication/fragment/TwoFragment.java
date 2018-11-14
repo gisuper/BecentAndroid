@@ -20,7 +20,7 @@ public class TwoFragment extends BaseFragment {
     @Override
     protected void initView() {
         EventBus.getDefault().post(new MessageEvent());
-        RefreshLayout refreshLayout = (RefreshLayout)findViewById(R.id.refreshLayout);
+        RefreshLayout refreshLayout = findViewById(R.id.refreshLayout);
         refreshLayout.setOnRefreshListener(refreshlayout ->{
                 refreshlayout.finishRefresh(2000/*,false*/);//传入false表示刷新失败
         });

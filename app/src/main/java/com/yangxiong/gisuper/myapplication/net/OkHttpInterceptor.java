@@ -3,15 +3,10 @@ package com.yangxiong.gisuper.myapplication.net;
 
 import android.util.Log;
 
-
-import com.yangxiong.gisuper.myapplication.MyApp;
-import com.yangxiong.gisuper.myapplication.utils.NetworkUtil;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import okhttp3.CacheControl;
 import okhttp3.Headers;
 import okhttp3.Interceptor;
 import okhttp3.Request;
@@ -26,15 +21,10 @@ import okhttp3.ResponseBody;
 public class OkHttpInterceptor implements Interceptor {
     private static final String TAG="okHttp";
     //设缓存有效期为1天
-    private static final long CACHE_CONTROL_CACHE = 60 * 60 * 24 * 1;
     @Override
     public Response intercept(Chain chain) throws IOException {
         //从chain对象中可以获取到request和response，想要的数据都可以从这里获取
         Request request=chain.request();
-        if (!NetworkUtil.isNetworkConnected(MyApp.getContext())){//如果不能上网，那么启用缓存
-            request.newBuilder().cacheControl(CacheControl.FORCE_CACHE).build();
-        }
-
         //增加头部信息
         request=addHeaders(request);
         //打印request日志
@@ -43,19 +33,8 @@ public class OkHttpInterceptor implements Interceptor {
         Response response=chain.proceed(request);
         //打印response日志
         logForResponse(response);
-        if (NetworkUtil.isNetworkConnected(MyApp.getContext())) {
-            //有网的时候读接口上的@Headers里的配置，可以在这里进行统一的设置
-            String cacheControl = request.cacheControl().toString();
             return response.newBuilder()
-                    .header("Cache-Control", cacheControl)
-                    .removeHeader("Pragma")
                     .build();
-        } else {
-            return response.newBuilder()
-                    .header("Cache-Control", "public, only-if-cached, max-stale=" + CACHE_CONTROL_CACHE)
-                    .removeHeader("Pragma")
-                    .build();
-        }
 
     }
 
