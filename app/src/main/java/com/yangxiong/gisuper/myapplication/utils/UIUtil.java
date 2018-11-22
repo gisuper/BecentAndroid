@@ -57,6 +57,26 @@ public class UIUtil {
      * 填充layout布局文件
      */
     public static View inflate(Context context, int resId) {
+
+        TimeRefresher.getInstance().addTimeRefreshListener(TAG
+                , 0 + Integer.valueOf(100), new TimeRefresher.OnTimeRefreshListener( ) {
+                    @Override
+                    public void onTimerStart() {
+
+                    }
+
+                    @Override
+                    public void onTimerRefresh() {
+
+                    }
+
+                    @Override
+                    public void onTimerStop() {
+
+                    }
+                });
+
+
         return LayoutInflater.from(context).inflate(resId, null);
     }
 

@@ -53,12 +53,12 @@ android {
             manifestPlaceholders = [UMENG_CHANNEL_VALUE: "yyb"]
         }
 
-        minApi21 {
+        minApi16 {
             dimension "api"
-            minSdkVersion '21'
+            minSdkVersion '16'
             versionCode 20000 + android.defaultConfig.versionCode
-            versionNameSuffix "-minApi21"
-            versionName "2.0"
+            versionNameSuffix "-minApi16"
+            versionName "4.0"
         }
     }
     buildToolsVersion '27.0.3'

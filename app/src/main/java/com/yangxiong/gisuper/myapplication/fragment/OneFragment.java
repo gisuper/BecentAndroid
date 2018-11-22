@@ -1,7 +1,6 @@
 package com.yangxiong.gisuper.myapplication.fragment;
 
 import android.util.Log;
-import android.widget.TextView;
 
 import com.yangxiong.gisuper.myapplication.R;
 import com.yangxiong.gisuper.myapplication.base.BaseFragment;
@@ -11,15 +10,11 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import butterknife.BindView;
-
 /**
  * Created by yangxiong on 2018/11/2.
  */
 public class OneFragment extends BaseFragment {
 
-    @BindView(R.id.tvOne)
-    TextView tvOne;
     @Override
     protected int contentViewLayout() {
         return R.layout.fragment_one;

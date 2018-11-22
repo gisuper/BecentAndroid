@@ -6,9 +6,12 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.view.ViewCompat;
+import android.support.v4.view.ViewPropertyAnimatorListener;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.analytics.HitBuilders;
@@ -32,6 +35,8 @@ public class MainActivity extends BaseActivity {
 
     private Tracker defaultTracker;
 
+    @BindView(R.id.btn_retrofit)
+    Button btnRetrofit;
     @BindView(R.id.tv_scan_result)
     TextView tvScanResult;
     @Override
@@ -63,9 +68,29 @@ public class MainActivity extends BaseActivity {
         defaultTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
-    @OnClick({R.id.btn_frame, R.id.btn_translate, R.id.btn_retrofit, R.id.btn_viewpager, R.id.btn_qrcode,R.id.btn_sv})
+    @OnClick({R.id.btn_frame, R.id.btn_translate, R.id.btn_retrofit, R.id.btn_viewpager, R.id.btn_qrcode,R.id.btn_sv,R.id.button3})
     public void onClick(View v) {
         switch (v.getId( )) {
+            case R.id.button3:
+                ViewCompat.animate(btnRetrofit).scaleX(1.2f).scaleY(1.2f).
+                        translationY(500).rotation(360).setListener(new ViewPropertyAnimatorListener( ) {
+                    @Override
+                    public void onAnimationStart(View view) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(View view) {
+
+                    }
+
+                    @Override
+                    public void onAnimationCancel(View view) {
+
+                    }
+                })
+                        .setDuration(2000).start( );
+                break;
             case R.id.btn_sv:
                 startActivity(SurfaceViewActivity.class);
                 break;
