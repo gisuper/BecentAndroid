@@ -234,7 +234,7 @@ public class CustomView extends View
         //在坐标（100,100）和（600,100）之间画一条线
         //canvas.drawLine(100,100,600,100,mPaint);
         //画多条线
-        //canvas.drawLines(new float[]{100,150,600,150,100,200,600,200,100,250,600,250},mPaint);
+        canvas.drawLines(new float[]{100,150,600,150,100,200,600,200,100,250,600,250},mPaint);
 
 
 

@@ -20,6 +20,7 @@ import com.uuzuche.lib_zxing.activity.CodeUtils;
 import com.yangxiong.gisuper.myapplication.MyApp;
 import com.yangxiong.gisuper.myapplication.R;
 import com.yangxiong.gisuper.myapplication.RecordedListBean;
+import com.yangxiong.gisuper.myapplication.anim.MyActivity;
 import com.yangxiong.gisuper.myapplication.base.BaseActivity;
 import com.yangxiong.gisuper.myapplication.net.RetrofitManager;
 import com.yangxiong.gisuper.myapplication.utils.PermissionUtil;
@@ -68,9 +69,13 @@ public class MainActivity extends BaseActivity {
         defaultTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
-    @OnClick({R.id.btn_frame, R.id.btn_translate, R.id.btn_retrofit, R.id.btn_viewpager, R.id.btn_qrcode,R.id.btn_sv,R.id.button3})
+    @OnClick({R.id.btn_frame, R.id.btn_translate, R.id.btn_retrofit, R.id.btn_viewpager,
+            R.id.btn_qrcode,R.id.btn_sv,R.id.button3,R.id.button4})
     public void onClick(View v) {
         switch (v.getId( )) {
+            case R.id.button4:
+                startActivity(MyActivity.class);
+                break;
             case R.id.button3:
                 ViewCompat.animate(btnRetrofit).scaleX(1.2f).scaleY(1.2f).
                         translationY(500).rotation(360).setListener(new ViewPropertyAnimatorListener( ) {
