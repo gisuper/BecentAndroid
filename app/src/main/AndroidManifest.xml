@@ -10,11 +10,12 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.READ_PHONE_NUMBERS"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_SMS"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.CAMERA"/>
+
     <application
         android:name=".MyApp"
         android:allowBackup="true"
@@ -32,6 +33,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
         <activity
+            android:exported="false"
             android:name=".activity.TranslateActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -48,7 +50,9 @@
         <activity android:name=".activity.ViewPagerActivity"/>
         <activity android:name=".activity.SurfaceViewActivity"/>
         <activity android:name=".anim.MyActivity"/>
-<activity android:name=".activity.ScanActivity"/>
+        <activity android:name=".activity.ScanActivity"/>
+        <activity android:name=".activity.AppBarLayoutActivity" android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

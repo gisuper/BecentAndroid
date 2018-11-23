@@ -1,6 +1,9 @@
 package com.yangxiong.gisuper.myapplication.fragment;
 
+import android.support.v7.widget.Toolbar;
+
 import com.yangxiong.gisuper.myapplication.R;
+import com.yangxiong.gisuper.myapplication.activity.ViewPagerActivity;
 import com.yangxiong.gisuper.myapplication.base.BaseFragment;
 
 /**
@@ -14,6 +17,11 @@ public class ThreeFragment extends BaseFragment {
 
     @Override
     protected void initView() {
+
+        Toolbar toolbar =  findViewById(R.id.toolbar);
+        ViewPagerActivity viewPagerActivity = (ViewPagerActivity) getActivity();
+        //StatusBarUtil.setStatusBarColor(viewPagerActivity, getResources().getColor(R.color.statusbar_bg));
+        viewPagerActivity.setSupportActionBar(toolbar);
 
     }
 

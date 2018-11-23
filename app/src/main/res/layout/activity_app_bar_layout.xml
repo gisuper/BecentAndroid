@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.ViewPagerActivity">
+    tools:context="com.yangxiong.gisuper.myapplication.activity.AppBarLayoutActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -16,9 +16,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:minHeight="100dp"
-            app:contentScrim="#00f"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
-            app:title="collapsing title">
+            app:title="collapsing title1">
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -27,17 +27,20 @@
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="bottom"
+                android:layout_height="100dp"
                 app:layout_collapseMode="pin"
-                app:title="title"
-            />
+                app:title="title123123123"
+            >
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="the test content"
+                />
+            </android.support.v7.widget.Toolbar>
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"

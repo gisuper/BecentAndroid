@@ -4,7 +4,9 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Path;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
@@ -18,6 +20,22 @@ public class DemoSurfaceView extends SurfaceView  implements Callback{
 
         init(); //初始化,设置生命周期回调方法
 
+    }
+
+    public DemoSurfaceView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+         init(); //初始化,设置生命周期回调方法
+    }
+
+    public DemoSurfaceView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+         init(); //初始化,设置生命周期回调方法
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    public DemoSurfaceView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+         init(); //初始化,设置生命周期回调方法                 
     }
 
     private void init(){
@@ -69,7 +87,7 @@ public class DemoSurfaceView extends SurfaceView  implements Callback{
 
             paint = new Paint();
             paint.setColor(Color.YELLOW);
-            paint.setStyle(Paint.Style.STROKE);
+            paint.setStyle(Paint.Style.FILL_AND_STROKE);
         }
 
         @Override
@@ -100,16 +118,16 @@ public class DemoSurfaceView extends SurfaceView  implements Callback{
         public void doDraw(Canvas c){
 
             //这个很重要，清屏操作，清楚掉上次绘制的残留图像
-            c.drawColor(Color.BLACK);
+            c.drawColor(Color.WHITE);
 
-            c.translate(200, 200);
+            c.translate(40, 40);
             c.drawCircle(0,0, radius++, paint);
-            Path path = new Path();
+/*            Path path = new Path();
             path.lineTo(200, 400);
 //(200, 400)到（400,600）画一条直线
             path.lineTo(400, 600);
 //以（400,600）为起始点（0
-            c.drawPath(path,paint);
+            c.drawPath(path,paint);*/
             if(radius > 100){
                 radius = 10f;
             }

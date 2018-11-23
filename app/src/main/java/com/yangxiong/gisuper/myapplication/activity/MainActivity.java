@@ -69,10 +69,13 @@ public class MainActivity extends BaseActivity {
         defaultTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
-    @OnClick({R.id.btn_frame, R.id.btn_translate, R.id.btn_retrofit, R.id.btn_viewpager,
+    @OnClick({R.id.btn_frame, R.id.btn_translate, R.id.btn_retrofit, R.id.btn_viewpager,R.id.button2,
             R.id.btn_qrcode,R.id.btn_sv,R.id.button3,R.id.button4})
     public void onClick(View v) {
         switch (v.getId( )) {
+            case R.id.button2:
+                startActivity(AppBarLayoutActivity.class);
+                break;
             case R.id.button4:
                 startActivity(MyActivity.class);
                 break;
