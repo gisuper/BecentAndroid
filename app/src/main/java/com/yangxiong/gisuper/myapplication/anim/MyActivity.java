@@ -42,6 +42,7 @@ public class MyActivity extends Activity {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                doTranslationAnimation();
                 /**
                  * 一、概述之Alpha
                  */
@@ -49,7 +50,7 @@ public class MyActivity extends Activity {
                 /**
                  * 一、概述之rotationX
                  */
-               doRatateXAnimation();
+//               doRatateXAnimation();
                 /**
                  * 一、概述之rotationY
                  */
@@ -88,7 +89,7 @@ public class MyActivity extends Activity {
                  */
 //                doBackgroundColor();
 
-                doAnimatorSetAnimation();
+//                doAnimatorSetAnimation();
             }
         });
 
@@ -173,6 +174,10 @@ public class MyActivity extends Activity {
         //执行完挤压动画后执行小球弹起动画
 //        bouncer.play(bounceBackAnim).after(stretchAnim2);
 
+
+
+        //test dev into master
+
         AnimatorSet.Builder builder = new AnimatorSet().play(alphaAnim);
     }
 
@@ -250,6 +255,14 @@ cpLoading.startIncrease();
         ObjectAnimator animator = ObjectAnimator.ofFloat(tv, "translationX", 0, 200, -200, 0);
         animator.setDuration(2000);
         animator.start();
+    }
+    private void doTranslationAnimation() {
+        ObjectAnimator animatorx = ObjectAnimator.ofFloat(tv, "translationX", 200, 500, 200);
+        animatorx.setDuration(2000);
+        animatorx.start();
+        ObjectAnimator animatoy = ObjectAnimator.ofFloat(tv, "translationY", 200, 500, 200);
+        animatoy.setDuration(2000);
+        animatoy.start();
     }
 
     /**
