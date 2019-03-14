@@ -177,6 +177,7 @@ public class MyActivity extends Activity {
 
 
         //test dev into master
+        //step 2 : test dev into master
 
         AnimatorSet.Builder builder = new AnimatorSet().play(alphaAnim);
     }
