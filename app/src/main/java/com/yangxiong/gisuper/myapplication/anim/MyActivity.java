@@ -178,6 +178,7 @@ public class MyActivity extends Activity {
 
         //test dev into master
         //step 2 : test dev into master
+        //step 3 : test master changed
 
         AnimatorSet.Builder builder = new AnimatorSet().play(alphaAnim);
     }
